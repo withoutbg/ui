@@ -4,9 +4,9 @@ node_modules
 .pnp.js
 
 # Build outputs
-dist
 build
 *.local
+# Note: dist is intentionally NOT ignored so it can be committed for GitHub installs
 
 # Storybook
 storybook-static
