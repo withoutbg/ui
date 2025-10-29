@@ -44,19 +44,30 @@ module.exports = {
 };
 ```
 
-### 2. Import Styles
+### 2. Import Styles (REQUIRED)
 
-Import the component styles in your main CSS file or layout:
+**This step is crucial** - without it, your components will have no styling!
 
-```css
-/* In your global CSS file */
-@import '@withoutbg/ui/styles';
-```
-
-Or import in your root layout/app component:
+Import the component styles in your root layout or app entry point:
 
 ```tsx
+// In your Next.js app layout (app/layout.tsx) or pages/_app.tsx
 import '@withoutbg/ui/styles';
+
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+Alternatively, import in your main CSS file:
+
+```css
+/* In your global CSS file (e.g., app/globals.css) */
+@import '@withoutbg/ui/styles';
 ```
 
 ## Usage
@@ -120,6 +131,24 @@ function MyComponent() {
     >
       Large Button
     </PrimaryButton>
+  );
+}
+```
+
+### SecondaryButton
+
+A secondary button component with subtle styling, supporting both click handlers and Next.js navigation.
+
+#### Basic Usage
+
+```tsx
+import { SecondaryButton } from '@withoutbg/ui';
+
+function MyComponent() {
+  return (
+    <SecondaryButton onClick={() => console.log('Clicked!')}>
+      Secondary Action
+    </SecondaryButton>
   );
 }
 ```

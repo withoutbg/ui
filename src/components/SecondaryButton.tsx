@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ReactNode, ButtonHTMLAttributes } from "react";
 
 // Link-based button props
-interface SecondaryButtonLinkProps {
+export interface SecondaryButtonLinkProps {
     href: string;
     children: ReactNode;
     className?: string;
@@ -12,7 +12,7 @@ interface SecondaryButtonLinkProps {
 }
 
 // Click-based button props  
-interface SecondaryButtonClickProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'children'> {
+export interface SecondaryButtonClickProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'children'> {
     onClick: () => void;
     children: ReactNode;
     className?: string;
@@ -21,7 +21,7 @@ interface SecondaryButtonClickProps extends Omit<ButtonHTMLAttributes<HTMLButton
     "aria-current"?: never;
 }
 
-type SecondaryButtonProps = SecondaryButtonLinkProps | SecondaryButtonClickProps;
+export type SecondaryButtonProps = SecondaryButtonLinkProps | SecondaryButtonClickProps;
 
 export const SecondaryButton = (props: SecondaryButtonProps) => {
     const baseClasses = "px-4 py-2 rounded-lg text-sm font-medium border border-gray-200 text-gray-700 hover:border-gray-300 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-75 transition-[border-color,background-color] duration-75 bg-white dark:border-gray-600 dark:text-gray-300 dark:hover:border-gray-500 dark:hover:bg-gray-800/30 dark:bg-gray-800 text-center";
