@@ -1,0 +1,20 @@
+<script>
+  // Apply theme class to document for dark mode support
+  const theme = new URLSearchParams(window.location.search).get('globals');
+  if (theme && theme.includes('dark')) {
+    document.documentElement.classList.add('dark');
+  }
+  
+  // Listen for theme changes
+  window.addEventListener('message', (event) => {
+    if (event.data && event.data.key === 'setGlobals') {
+      const globals = event.data.globals;
+      if (globals && globals.theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  });
+</script>
+
